@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,16 +163,21 @@
             max-width: 650px;
         }
 
+        /* Project grid */
         .projects {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 24px;
+            align-items: stretch;
         }
 
+        /* Project cards */
         .project-card {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            min-width: 0;
+            overflow: hidden;
             background-color: #111827;
             border: 1px solid #263449;
             border-radius: 12px;
@@ -182,6 +188,19 @@
         .project-card:hover {
             transform: translateY(-5px);
             border-color: #38bdf8;
+        }
+
+        /* Project screenshots */
+        .project-preview {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            margin-bottom: 22px;
         }
 
         .project-number {
@@ -248,6 +267,7 @@
             font-size: 0.85rem;
         }
 
+        /* Tablet and mobile */
         @media (max-width: 700px) {
             nav {
                 flex-direction: column;
@@ -269,8 +289,22 @@
                 grid-template-columns: 1fr;
             }
 
+            .project-card {
+                padding: 20px;
+            }
+
+            .project-preview {
+                height: 200px;
+            }
+
             section h2 {
                 font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .project-preview {
+                height: 160px;
             }
         }
     </style>
@@ -279,7 +313,9 @@
 <body>
 
     <nav>
-        <a href="#" class="logo">Christian Healy<span style="color: #38bdf8;">.</span></a>
+        <a href="#" class="logo">
+            Christian Healy<span style="color: #38bdf8;">.</span>
+        </a>
 
         <div>
             <a href="#projects">Projects</a>
@@ -332,19 +368,27 @@
 
             <div class="projects">
 
+                <!-- PROJECT 01: PODIATRY -->
                 <article class="project-card">
-                    <img src="images/willow_podiatry.png"
-                    class="project-preview"
-                    alt="Willow Podiatry website">
 
-                    <span class="project-number">PROJECT 01 · FEATURED PROTOTYPE</span>
+                    <img src="images/willow_podiatry.png"
+                         class="project-preview"
+                         alt="Willow Podiatry website"
+                         loading="lazy">
+
+                    <span class="project-number">
+                        PROJECT 01 · FEATURED PROTOTYPE
+                    </span>
+
                     <h3>Podiatry Route Optimisation System</h3>
+
                     <p>
                         A full-stack route planning application for mobile podiatrists.
                         Organises home visits around appointment times, optimises travel,
                         and provides interactive maps, individual journey views and visit tracking.
                         Demonstrated using fictional patient data.
                     </p>
+
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">FastAPI</span>
@@ -353,19 +397,23 @@
                         <span class="tag">Leaflet</span>
                         <span class="tag">JavaScript</span>
                     </div>
-                    
+
                     <a href="https://podiatry-route-assistant.onrender.com/"
-                    class="project-link"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                       class="project-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
                         Live Demo ↗
                     </a>
+
                 </article>
 
+                <!-- PROJECT 02: AI RFQ PROCESSOR -->
                 <article class="project-card">
+
                     <img src="images/ai_rfq_processor.png"
-                    class="project-preview"
-                    alt="AI RFQ Processor dashboard">
+                         class="project-preview"
+                         alt="AI RFQ Processor dashboard"
+                         loading="lazy">
 
                     <span class="project-number">PROJECT 02</span>
 
@@ -392,12 +440,16 @@
                        class="project-link">
                         Live Demo ↗
                     </a>
+
                 </article>
 
+                <!-- PROJECT 03: GRAPHENEOS -->
                 <article class="project-card">
+
                     <img src="images/graphene_os.png"
-                    class="project-preview"
-                    alt="Trent Secure Tech website">
+                         class="project-preview"
+                         alt="Trent Secure Tech website"
+                         loading="lazy">
 
                     <span class="project-number">PROJECT 03</span>
 
@@ -421,6 +473,7 @@
                        class="project-link">
                         View Website ↗
                     </a>
+
                 </article>
 
             </div>
